@@ -1,5 +1,6 @@
 package com.example.instadev.view.auth.login
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -14,6 +15,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
@@ -35,6 +37,9 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.instadev.R
+import com.example.instadev.ui.theme.shapes
+import com.example.instadev.view.core.components.InstaButton
+import com.example.instadev.view.core.components.InstaText
 
 @Preview
 @Composable
@@ -48,13 +53,16 @@ fun LoginScreen(loginViewModel: LoginViewModel = viewModel()) {
     Scaffold { padding ->
         Column(
             Modifier
-                .background(Color.White)
+                .background(MaterialTheme.colorScheme.background)
                 .padding(padding)
                 .padding(horizontal = 24.dp)
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text("Español(España)", color = Color.Gray, modifier = Modifier.padding(top = 22.dp))
+            InstaText(
+                text = "Español(España)",
+                modifier = Modifier.padding(top = 22.dp)
+            )
             Spacer(Modifier.weight(1f))
             Image(
                 modifier = Modifier.size(56.dp),
@@ -67,7 +75,11 @@ fun LoginScreen(loginViewModel: LoginViewModel = viewModel()) {
                 shape = RoundedCornerShape(30),
                 value = uiState.email,
                 onValueChange = { loginViewModel.onEmailChange(it) },
-                label = {Text("Usuario, correo electrónico o móvil")}
+                label = {
+                    InstaText(
+                        text = "Usuario, correo electrónico o móvil"
+                    )
+                }
             )
             Spacer(Modifier.height(12.dp))
             OutlinedTextField(
@@ -75,33 +87,40 @@ fun LoginScreen(loginViewModel: LoginViewModel = viewModel()) {
                 shape = RoundedCornerShape(30),
                 value = uiState.password,
                 onValueChange = { loginViewModel.onPasswordChange(it) },
-                label = {Text("Contraseña")}
+                label = {
+                    InstaText(
+                        text = "Contraseña"
+                    )
+                }
             )
             Spacer(Modifier.height(10.dp))
-            Button(
+            InstaButton(
                 modifier = Modifier.fillMaxWidth(),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color.Blue
-                ),
                 onClick = {},
-                enabled = uiState.isLoginEnable
-            ) {
-                Text(modifier = Modifier.padding(vertical = 4.dp), text = "Iniciar Sesion")
-            }
+                enabled = uiState.isLoginEnable,
+                text = "Iniciar Sesion"
+            )
             TextButton(onClick = {}) {
-                Text("Has olvidado la contraseña?")
+                InstaText(
+                    text = "Has olvidado la contraseña?",
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
             }
             Spacer(Modifier.weight(1.3f))
             OutlinedButton(
                 modifier = Modifier.fillMaxWidth(),
-                onClick = {}) {
-                Text("Crear cuenta nueva")
+                onClick = {},
+                border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary)
+            ) {
+                InstaText(text = "Crear cuenta nueva", color = MaterialTheme.colorScheme.primary)
             }
             Icon(
-                modifier = Modifier.width(60.dp).padding(vertical = 22.dp),
+                modifier = Modifier
+                    .width(60.dp)
+                    .padding(vertical = 22.dp),
                 painter = painterResource(R.drawable.ic_meta),
                 contentDescription = "meta logo",
-                tint = Color.Gray
+                tint = MaterialTheme.colorScheme.onBackground
             )
         }
     }
