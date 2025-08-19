@@ -23,6 +23,7 @@ private val LightColorScheme = lightColorScheme(
     primary = InstBlue,
     onPrimary = Color.White,
     background = Gray100,
+    onBackground = Gray80,
     onSurfaceVariant = Gray30
 
     /* Other default colors to override

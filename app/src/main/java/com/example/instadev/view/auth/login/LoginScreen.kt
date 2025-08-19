@@ -40,11 +40,14 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.instadev.R
 import com.example.instadev.ui.theme.shapes
 import com.example.instadev.view.core.components.InstaButton
+import com.example.instadev.view.core.components.InstaButtonSecondary
 import com.example.instadev.view.core.components.InstaText
+import com.example.instadev.view.core.components.InstaTextField
 
-@Preview
 @Composable
-fun LoginScreen(loginViewModel: LoginViewModel = viewModel()) {
+fun LoginScreen(loginViewModel: LoginViewModel = viewModel(),
+                navigateToRegister:() -> Unit
+                ) {
 
 //    var email by remember { mutableStateOf("") }
 //    var password by remember { mutableStateOf("") }
@@ -71,28 +74,18 @@ fun LoginScreen(loginViewModel: LoginViewModel = viewModel()) {
                 contentDescription = "InstaDev Logo Header"
             )
             Spacer(Modifier.weight(1f))
-            OutlinedTextField(
+            InstaTextField(
                 modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(30),
                 value = uiState.email,
                 onValueChange = { loginViewModel.onEmailChange(it) },
-                label = {
-                    InstaText(
-                        text = stringResource(R.string.login_screen_textfield_email)
-                    )
-                }
+                label = stringResource(R.string.login_screen_textfield_email)
             )
             Spacer(Modifier.height(12.dp))
-            OutlinedTextField(
+            InstaTextField(
                 modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(30),
                 value = uiState.password,
                 onValueChange = { loginViewModel.onPasswordChange(it) },
-                label = {
-                    InstaText(
-                        text = stringResource(R.string.login_screen_textfield_password)
-                    )
-                }
+                label = stringResource(R.string.login_screen_textfield_password)
             )
             Spacer(Modifier.height(10.dp))
             InstaButton(
@@ -108,13 +101,11 @@ fun LoginScreen(loginViewModel: LoginViewModel = viewModel()) {
                 )
             }
             Spacer(Modifier.weight(1.3f))
-            OutlinedButton(
+            InstaButtonSecondary(
                 modifier = Modifier.fillMaxWidth(),
-                onClick = {},
-                border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary)
-            ) {
-                InstaText(text = stringResource(R.string.login_screen_button_register), color = MaterialTheme.colorScheme.primary)
-            }
+                onClickAction = {navigateToRegister()},
+                title = stringResource(R.string.login_screen_button_register),
+            )
             Icon(
                 modifier = Modifier
                     .width(60.dp)
@@ -125,4 +116,10 @@ fun LoginScreen(loginViewModel: LoginViewModel = viewModel()) {
             )
         }
     }
+}
+
+@Preview
+@Composable
+fun loginScreenPreview(){
+
 }

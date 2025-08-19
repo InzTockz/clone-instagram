@@ -2,13 +2,17 @@
     <string name="app_name">InstaDev</string>
 
     <!-- Register Screen -->
-    <string name="register_screen_header_text_question">¿Cuál es tu número de móvil?</string>
-    <string name="register_screen_text_message_informative_first">Introduce tu número de móvil de contacto. Nadie lo verá en tu perfil.</string>
-    <string name="register_screen_textfield_telephone_number">Número de móvil</string>
+    <string name="register_screen_title_phone">¿Cuál es tu número de móvil?</string>
+    <string name="register_screen_title_email">Cual es tu correo electronico</string>
+    <string name="register_screen_subtitle_phone">Introduce tu número de móvil de contacto. Nadie lo verá en tu perfil.</string>
+    <string name="register_screen_subtitle_email">Introduce tu email de contacto. Nadie lo verá en tu perfil.</string>
+    <string name="register_screen_textfield_register_phone">Número de móvil</string>
+    <string name="register_screen_textfield_register_email">Correo electronico</string>
     <string name="register_screen_text_message_informative_second">Puede que recibas notificaciones nuestras en WhatsApp y por SMS por motivos de seguridad
     y para iniciar sesión.</string>
     <string name="register_screen_button_text_next">Siguiente</string>
-    <string name="register_screen_button_text_change_email">Registrarte con tu correo electrónico</string>
+    <string name="register_screen_button_register_with_email">Registrarte con tu correo electrónico</string>
+    <string name="register_screen_button_register_with_phone">Registrarte con tu numero de movil</string>
     <string name="register_screen_text_find_account">Buscar mi cuenta</string>
 
     <!-- Login Screen-->

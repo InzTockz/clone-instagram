@@ -21,10 +21,29 @@ val Typography = Typography(
         lineHeight = 24.sp,
         letterSpacing = 0.5.sp
     ),
+    bodyMedium = TextStyle(
+        fontWeight = FontWeight.Normal,
+        fontSize = 14.sp,
+        lineHeight = 24.sp,
+        letterSpacing = 0.5.sp
+    ),
     displayLarge = TextStyle(
         fontFamily = wdx,
         fontWeight = FontWeight.Black,
         fontSize = 57.sp
+    ),
+    headlineLarge = TextStyle(
+        fontWeight = FontWeight.Bold,
+        fontSize = 22.sp,
+        lineHeight = 24.sp,
+        letterSpacing = 0.5.sp
+    ),
+    titleSmall = TextStyle(
+//        fontFamily = wdx,
+        fontWeight = FontWeight.Normal,
+        fontSize = 18.sp,
+        lineHeight = 24.sp,
+        letterSpacing = 0.5.sp
     )
     /* Other default text styles to override
     titleLarge = TextStyle(
