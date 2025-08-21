@@ -35,6 +35,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.instadev.R
@@ -45,9 +46,11 @@ import com.example.instadev.view.core.components.InstaText
 import com.example.instadev.view.core.components.InstaTextField
 
 @Composable
-fun LoginScreen(loginViewModel: LoginViewModel = viewModel(),
-                navigateToRegister:() -> Unit
-                ) {
+fun LoginScreen(
+    loginViewModel: LoginViewModel = hiltViewModel(),
+    navigateToRegister: () -> Unit
+
+) {
 
 //    var email by remember { mutableStateOf("") }
 //    var password by remember { mutableStateOf("") }
@@ -96,14 +99,14 @@ fun LoginScreen(loginViewModel: LoginViewModel = viewModel(),
             )
             TextButton(onClick = {}) {
                 InstaText(
-                    text = stringResource(R.string.login_screen_text_forgot_password ),
+                    text = stringResource(R.string.login_screen_text_forgot_password),
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
             Spacer(Modifier.weight(1.3f))
             InstaButtonSecondary(
                 modifier = Modifier.fillMaxWidth(),
-                onClickAction = {navigateToRegister()},
+                onClickAction = { navigateToRegister() },
                 title = stringResource(R.string.login_screen_button_register),
             )
             Icon(
@@ -120,6 +123,6 @@ fun LoginScreen(loginViewModel: LoginViewModel = viewModel(),
 
 @Preview
 @Composable
-fun loginScreenPreview(){
+fun loginScreenPreview() {
 
 }
