@@ -37,6 +37,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.instadev.R
@@ -46,7 +47,7 @@ import com.example.instadev.view.core.components.InstaText
 import com.example.instadev.view.core.components.InstaTextField
 
 @Composable
-fun RegisterScreen(registerViewModel: RegisterViewModel = viewModel(),
+fun RegisterScreen(registerViewModel: RegisterViewModel = hiltViewModel(),
                    navigateBack:() -> Unit
 ) {
 

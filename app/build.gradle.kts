@@ -59,11 +59,15 @@ dependencies {
 
     //Navigation
     implementation((libs.androidx.navigation.compose))
-    ksp(libs.hilt.compiler)
-    implementation(libs.hilt.navigation)
 
     //DI
     implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+    implementation(libs.hilt.navigation)
+
+    //Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.adapter)
 
     //Testing
     testImplementation(libs.junit)
